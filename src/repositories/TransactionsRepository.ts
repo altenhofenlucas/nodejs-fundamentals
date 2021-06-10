@@ -22,7 +22,7 @@ class TransactionsRepository {
       (accumulator, currentValue) => {
         const { type, value } = currentValue;
 
-        if (type === 'income') {
+        if (type === Transaction.TransactionType.INCOME) {
           accumulator.income += value;
         } else {
           accumulator.outcome += value;

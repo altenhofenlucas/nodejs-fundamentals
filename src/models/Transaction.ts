@@ -1,13 +1,20 @@
 import { v4 as uuid } from 'uuid';
 
+enum TransactionType {
+  INCOME = 'income',
+  OUTCOME = 'outcome',
+}
+
 class Transaction {
+  static readonly TransactionType = TransactionType;
+
   id: string;
 
   title: string;
 
   value: number;
 
-  type: 'income' | 'outcome';
+  type: TransactionType.INCOME | TransactionType.OUTCOME;
 
   constructor({ title, value, type }: Omit<Transaction, 'id'>) {
     this.id = uuid();
